@@ -1,13 +1,23 @@
 <h2>My Heroes</h2>
-<div class="">
-    <ul class="heroes col-1-2 module">
-        <li *ngFor="let hero of heroes"
-            (click)="onSelect(hero)"
-            [class.selected]="hero === selectedHero">
-            <span class="badge">{{hero.id}}</span>
-            <span class="text">{{hero.name}}</span>
-        </li>
-    </ul>
+<div>
+    <div class="heroes col-1-2 module">
+        <div>
+            <label>Hero name:</label> <input #heroName/>
+            <button (click)="add(heroName.value); heroName.value=''">
+                Add
+            </button>
+        </div>
+        <ul>
+            <li *ngFor="let hero of heroes"
+                (click)="onSelect(hero)"
+                [class.selected]="hero === selectedHero">
+                <span class="badge">{{hero.id}}</span>
+                <span class="text">{{hero.name}}</span>
+                <a class="delete"
+                   (click)="delete(hero); $event.stopPropagation()">&#10005;</a>
+            </li>
+        </ul>
+    </div>
     <div *ngIf="selectedHero" class="cols-1-2 module">
         <h2>
             {{selectedHero.name | uppercase}} is my hero

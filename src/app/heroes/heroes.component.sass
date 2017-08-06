@@ -16,10 +16,11 @@
         height: $item-height
         border-radius: 3px
         transition: left 0.2s ease
+        list-style-type: none
 
         &:hover
             background-color: #DDD
-            left: 0.5em
+        //left: 0.5em
 
         &.selected
             background-color: #BBD8DC !important
@@ -45,3 +46,13 @@
 
 .module
     margin-right: 40px
+
+a.delete
+    position: relative
+    top: 3px
+    left: 1px
+    float: right
+    margin-right: .8em
+    color: #7d7d7d
+    &:hover
+        color: black
